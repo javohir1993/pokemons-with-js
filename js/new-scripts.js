@@ -67,6 +67,7 @@ pokemons.forEach(function (pokemon) {
   $_('.js-pocemon__title', elBasicTemplateClone).textContent = pokemon.name;
   $_('.js-pocemon__img', elBasicTemplateClone).src = pokemon.img;
   $_('.js-pocemon__img', elBasicTemplateClone).alt = pokemon.name;
+  $_('.js-pocemon__img', elBasicTemplateClone).dataset.id = pokemon.id;
   $_('.js-pokemon__height', elBasicTemplateClone).textContent = pokemon.height;
   $_('.js-pokemon__genus', elBasicTemplateClone).textContent = pokemon.name;
   $_('.js-pokemon__kg', elBasicTemplateClone).textContent = pokemon.weight;
@@ -138,7 +139,7 @@ pokemonTypeList.addEventListener('click', function (evt) {
 elResultsList.addEventListener('click', function(evt){
   // console.log(evt.target)
 
-  if (evt.target.matches('.js-pocemon__link')){
+  if (evt.target.matches('.js-pocemon__link') || evt.target.matches('img')){
     // console.log(evt.target.dataset.id);
     var pokemonIdItem = pokemons.find(function (pokemon) {
       return pokemon.id === Number(evt.target.dataset.id);
