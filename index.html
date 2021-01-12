@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Pokemons</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="overflow-hidden d-flex">
+    <section class="pokemons-filter p-2 vh-100 overflow-auto border-right">
+      <nav class="d-flex flex-column">
+        <ul class="js-pokemons-filter__list list-group">
+          <li class="js-pokemons-filter__item pokemons-filter__item list-group shadow mb-2">
+            <a class="js-pokemons-filter__link all btn rounded font-weight-bold text-black-50" href="#" data-id="all">All</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+
+    <section class="w-100 vh-100 overflow-auto mt-5">
+      <header class="site-header position-fixed">
+        <form class="js-site-header__form site-header__form" action="#" method="GET">
+          <input class="js-site-header__input site-header__input bg-dark p-2 text-white" type="search" name="search input" placeholder="Pokemon name e.g. Pikachu" required>
+        </form>
+      </header>
+
+      <div class="p-sm-2 mt-3">
+        <ul class="js-pokemon-list pokemon-list d-flex flex-wrap justify-content-center mt-5">
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal fade p-0" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="js-modal-dialog modal-dialog">
+      <div class="rounded-0 border-0 modal-content bg-dark d-flex align-items-center">
+        <button type="button" class="modal__close btn bg-white rounded-circle position-fixed" data-dismiss="modal">X</button>
+        <img class="js-modal__pokemon-img" src="" width="250" height="250" alt="">
+        <h2 class="js-modal__pokemon-name text-white h1 mb-3"></h2>
+
+        <div class="modal__box rounded p-3 mb-3">
+          <h4 class="modal__pokemon-stats">STATS</h4>
+          <ul class="js-modal__pokemon-stats p-0 m-0">
+            <li class="modal__pokemon-stats-item list-group">
+              <p class="text-white font-weight-bold mb-0">Type</p>
+              <p class="js-modal__pokemon-type mb-0 mr-3"></p>
+            </li>
+            <li class="modal__pokemon-stats-item list-group">
+              <p class="text-white font-weight-bold mb-0">Hight</p>
+              <p class="js-modal__pokemon-hight mb-0 mr-3"></p>
+            </li>
+            <li class="modal__pokemon-stats-item list-group">
+              <p class="text-white font-weight-bold mb-0">Weight</p>
+              <p class="js-modal__pokemon-weight mb-0 mr-3"></p>
+            </li>
+            <li class="modal__pokemon-stats-item list-group">
+              <p class="text-white font-weight-bold mb-0">Egg</p>
+              <p class="js-modal__pokemon-egg mb-0 mr-3"></p>
+            </li>
+            <li class="modal__pokemon-stats-item list-group">
+              <p class="text-white font-weight-bold mb-0">Multipliers</p>
+              <p class="js-modal__pokemon-multipliers mb-0 mr-3"></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <template class="js-pocemon__template">
+    <li class="js-pocemon__item pocemon__item list-group shadow-lg bg-white rounded mr-3 ml-2 mb-5">
+      <a class="js-pocemon__link pocemon__link d-flex flex-column align-items-center p-5" data-toggle="modal" data-target="#exampleModal" href="#">
+        <div class="d-flex flex-column-reverse">
+          <h2 class="js-pocemon__title h4 font-weight-bold text-center mt-5 mb-0">Bulbasaur</h2>
+          <img class="js-pocemon__img pocemon__img" src="http://www.serebii.net/pokemongo/pokemon/001.png" width="150" height="150" alt="">
+        </div>
+        <div class="pocemon__info d-flex align-items-center justify-content-between p-3 bg-white">
+          <p class="js-pokemon__height mb-0 font-weight-bold">0.7m</p>
+          <p class="js-pokemon__genus mb-0">Seed Pokemon</p>
+          <p class="js-pokemon__kg mb-0 font-weight-bold">6.9kg</p>
+        </div>
+        <div class="d-flex align-items-center">
+          <p class="js-pokemon__type mb-0 mr-2 text-primary font-weight-bold"></p>
+        </div>
+        <div class="d-flex align-items-center pt-3">
+          <p class="js-pokemon__ability mb-0 mr-4 font-weight-bold small">lorem</p>
+          <p class="js-pokemon__ability mb-0 ml-4 font-weight-bold small">lorem</p>
+        </div>
+      </a>
+    </li>
+  </template>
+
+  <!-- <template class="js-modal__template"> -->
+
+  <!-- </template> -->
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/pokemons.js"></script>
+  <script src="js/new-scripts.js"></script>
+</body>
+</html>
