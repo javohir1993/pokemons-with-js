@@ -30,11 +30,11 @@ var displayResults = function (forRun = pokemons) {
     var elBasicTemplateClone = elBasicTemplate.cloneNode(true);
 
     elResultsList.innerHTML = '';
-    $_('.js-pocemon__link', elBasicTemplateClone).dataset.id = pokemon.id;
+    $_('.js-pocemon__link', elBasicTemplateClone).dataset.id = pokemon.num;
     $_('.js-pocemon__title', elBasicTemplateClone).textContent = pokemon.name;
     $_('.js-pocemon__img', elBasicTemplateClone).src = pokemon.img;
     $_('.js-pocemon__img', elBasicTemplateClone).alt = pokemon.name;
-    $_('.js-pocemon__img', elBasicTemplateClone).dataset.id = pokemon.id;
+    $_('.js-pocemon__img', elBasicTemplateClone).dataset.id = pokemon.num;
     $_('.js-pokemon__height', elBasicTemplateClone).textContent = pokemon.height;
     $_('.js-pokemon__genus', elBasicTemplateClone).textContent = pokemon.name;
     $_('.js-pokemon__kg', elBasicTemplateClone).textContent = pokemon.weight;
@@ -106,8 +106,8 @@ pokemonTypeList.addEventListener('click', function (evt) {
   if (evt.target.matches('.js-pokemons-filter__link')) {
     // console.log(evt.target.dataset.id);
     var pokemonTypeItem = pokemons.filter(function (pokemon) {
-      var matchCategory = evt.target.dataset.id === "all" || pokemon.type.includes(evt.target.dataset.id);
-      return matchCategory;
+      var matchType = evt.target.dataset.id === "all" || pokemon.type.includes(evt.target.dataset.id);
+      return matchType;
     })
     // console.log(pokemonTypeItem);
 
@@ -125,14 +125,14 @@ elResultsList.addEventListener('click', function(evt){
       return Number(evt.target.dataset.id) === pokemon.id;
     })
     // console.log(pokemonIdItem);
-
-    $_('.js-modal__pokemon-img').src = pokemonIdItem.img;
-    $_('.js-modal__pokemon-img').alt = pokemonIdItem.name;
-    $_('.js-modal__pokemon-name').textContent = pokemonIdItem.name;
-    $_('.js-modal__pokemon-type').textContent = pokemonIdItem.type.join(' |  ');
-    $_('.js-modal__pokemon-hight').textContent = pokemonIdItem.height;
-    $_('.js-modal__pokemon-weight').textContent = pokemonIdItem.weight;
-    $_('.js-modal__pokemon-egg').textContent = pokemonIdItem.egg;
-    $_('.js-modal__pokemon-multipliers').textContent = pokemonIdItem.multipliers;
+    var elMainModalWrapper = $_('.main-modal-wrapper')
+    $_('.js-modal__pokemon-img', elMainModalWrapper).src = pokemonIdItem.img;
+    $_('.js-modal__pokemon-img', elMainModalWrapper).alt = pokemonIdItem.name;
+    $_('.js-modal__pokemon-name', elMainModalWrapper).textContent = pokemonIdItem.name;
+    $_('.js-modal__pokemon-type', elMainModalWrapper).textContent = pokemonIdItem.type.join(' |  ');
+    $_('.js-modal__pokemon-hight', elMainModalWrapper).textContent = pokemonIdItem.height;
+    $_('.js-modal__pokemon-weight', elMainModalWrapper).textContent = pokemonIdItem.weight;
+    $_('.js-modal__pokemon-egg', elMainModalWrapper).textContent = pokemonIdItem.egg;
+    $_('.js-modal__pokemon-multipliers', elMainModalWrapper).textContent = pokemonIdItem.multipliers;
   }
 });
